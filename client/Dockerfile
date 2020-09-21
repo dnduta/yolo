@@ -14,6 +14,8 @@ RUN ls -lrt
 
 RUN npm install
 
+COPY . /usr/src/app
+
 RUN cd /usr/src/app/
 
 RUN pwd
