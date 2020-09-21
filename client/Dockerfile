@@ -6,7 +6,19 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 
+RUN cd /usr/src/app/
+
+RUN pwd
+
+RUN ls -lrt
+
 RUN npm install
+
+RUN cd /usr/src/app/
+
+RUN pwd
+
+RUN ls -lrt
 
 EXPOSE 3000
 
