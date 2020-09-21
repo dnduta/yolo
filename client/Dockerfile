@@ -6,21 +6,19 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 
-RUN cd /usr/src/app/
-
-RUN pwd
-
-RUN ls -lrt
-
 RUN npm install
 
+# Copy src files to image
 COPY . /usr/src/app
 
-RUN cd /usr/src/app/
-
+# Debug show directory content
 RUN pwd
 
 RUN ls -lrt
+
+RUN npm run build
+
+RUN npm install -g serve
 
 EXPOSE 3000
 
