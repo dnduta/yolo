@@ -2,6 +2,7 @@ version: "3"
 services:
   front:
     container_name: front_end
+    restart: unless-stopped
     build: ./client
     volumes:
       - ./client:/usr/src/app
@@ -13,6 +14,7 @@ services:
       
   backend:
     container_name: backend
+    restart: unless-stopped
     build: ./backend
     volumes: 
       - ./backend:/usr/src/app
