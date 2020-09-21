@@ -6,6 +6,10 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 
+RUN cd /usr/src/app/
+
+RUN pwd
+
 RUN npm install
 
 COPY . /usr/src/app
