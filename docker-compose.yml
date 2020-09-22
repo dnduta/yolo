@@ -1,7 +1,7 @@
 version: "3"
 services:      
   backend:
-    container_name: backend
+    container_name: yolonet_backend
     restart: unless-stopped
     build: ./backend
     links: 
@@ -10,7 +10,7 @@ services:
       - yolonet
 
   mongo:
-    container_name: mongo
+    container_name: yolonet_mongo
     image: mongo:latest
     ports: 
       - "27017:27017"
@@ -19,7 +19,7 @@ services:
       - yolonet
 
   front:
-    container_name: front_end
+    container_name: yolonet_front
     restart: unless-stopped
     build: ./client
     ports: 
@@ -30,6 +30,6 @@ services:
     networks: 
       - yolonet
 
-  networks:
-    yolonet:
-      driver: bridge
+networks:
+  yolonet:
+    driver: bridge
