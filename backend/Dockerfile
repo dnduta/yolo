@@ -1,15 +1,19 @@
-FROM node:14 
+FROM node:14-alpine 
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /app
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json /usr/src/app/
+ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install
+COPY package.json .
+
+COPY package-lock.json .
+
+RUN npm install --no-optional
 
 # Copy app files to image
-COPY . /usr/src/app
+COPY . .
 
 # Debug directory content
 RUN pwd

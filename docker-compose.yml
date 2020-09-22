@@ -4,10 +4,6 @@ services:
     container_name: backend
     restart: unless-stopped
     build: ./backend
-    volumes: 
-      - ./backend:/usr/src/app
-    ports: 
-      - "5000:5000"
     links: 
       - mongo
 
@@ -22,8 +18,6 @@ services:
     container_name: front_end
     restart: unless-stopped
     build: ./client
-    volumes:
-      - ./client:/usr/src/app
     ports: 
       - "3000:3000"
     depends_on: 
