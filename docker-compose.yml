@@ -1,17 +1,5 @@
 version: "3"
-services:
-  front:
-    container_name: front_end
-    restart: unless-stopped
-    build: ./client
-    volumes:
-      - ./client:/usr/src/app
-    ports: 
-      - "3000:3000"
-    depends_on: 
-      - backend
-      - mongo
-      
+services:      
   backend:
     container_name: backend
     restart: unless-stopped
@@ -29,3 +17,15 @@ services:
     ports: 
       - "27017:27017"
       - "27018:27017"
+
+  front:
+    container_name: front_end
+    restart: unless-stopped
+    build: ./client
+    volumes:
+      - ./client:/usr/src/app
+    ports: 
+      - "3000:3000"
+    depends_on: 
+      - backend
+      - mongo
